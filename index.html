@@ -95,28 +95,33 @@
     <h1>🌻 Feliz Día de las Flores Amarillas🌻</h1>
     <p>
       Dicen que regalar flores amarillas es desear un futuro lleno de amor, 
-      de sueños cumplidos y momentos felices.<br><br>
+      de sueños cumplidos y momentos felices :).<br><br>
       Hoy no te entrego un ramo en las manos, pero sí este detalle hecho con el corazón. 💛<br><br>
       Cada flor que aquí vez es un inmenso recordatorio del amor que siento por ti, tu eres mi flor amarilla, el sentido de mi vida, el amor que soñé tener algún día <3. ✨
     </p>
 <audio id="audio-control" loop>
-  <source src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1859127488&start_time=47" type="audio/mpeg">
-  Tu navegador no soporta audio HTML5.
+  <source src="musica.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
 </audio>
 
 <script>
-  const audio = document.getElementById('audio-control');
-  audio.volume = 0.8;
-
-  function playAudio() {
-    audio.play();
-    document.removeEventListener('click', playAudio);
-    document.removeEventListener('touchstart', playAudio);
-  }
-
-  document.addEventListener('click', playAudio);
-  document.addEventListener('touchstart', playAudio);
-</script>
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+  const colors = ['#ff69b4', '#ff1493', '#ffa07a', '#ffc0cb', '#db7093', '#ffb6c1', '#ffffe0', '#ffe4e1'];
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('audio-control');
+    
+    function playAudio() {
+      audio.volume = 0.8;
+      audio.play().catch(error => {
+        console.log('Error al reproducir audio:', error);
+      });
+    }
+    
+    document.body.addEventListener(isTouchDevice ? 'touchstart' : 'click', function() {
+      playAudio();
+    });
+  });
 
     </div>
 
