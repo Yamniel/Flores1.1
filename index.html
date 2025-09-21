@@ -99,13 +99,24 @@
       Hoy no te entrego un ramo en las manos, pero sí este detalle hecho con el corazón. 💛<br><br>
       Cada flor que aquí vez es un inmenso recordatorio del amor que siento por ti, tu eres mi flor amarilla, el sentido de mi vida, el amor que soñé tener algún día <3. ✨
     </p>
+<audio id="audio-control" loop>
+  <source src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1859127488&start_time=47" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
 
-   <!-- Música embebida -->
-        <div style="text-align:center; margin-top:20px;">
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" 
-                src="https://soundcloud.com/shelseashels/floricienta-flores-amarillas?si=e616097efbb3482ba5b3067f0c53904e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing#t=0:47">
-            </iframe>
-        </div>
+<script>
+  const audio = document.getElementById('audio-control');
+  audio.volume = 0.8;
+
+  function playAudio() {
+    audio.play();
+    document.removeEventListener('click', playAudio);
+    document.removeEventListener('touchstart', playAudio);
+  }
+
+  document.addEventListener('click', playAudio);
+  document.addEventListener('touchstart', playAudio);
+</script>
 
     </div>
 
