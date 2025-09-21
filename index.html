@@ -100,31 +100,21 @@
       Cada flor que aquí vez es un inmenso recordatorio del amor que siento por ti, tu eres mi flor amarilla, el sentido de mi vida, el amor que soñé tener algún día <3. ✨
     </p>
     
-<audio id="audio-control" loop>
+<!-- Audio automático en bucle -->
+<audio id="miAudio" autoplay loop>
   <source src="musica.mp3" type="audio/mpeg">
-  Tu navegador no soporta el elemento de audio.
+  Tu navegador no soporta audio.
 </audio>
 
 <script>
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-  const colors = ['#ff69b4', '#ff1493', '#ffa07a', '#ffc0cb', '#db7093', '#ffb6c1', '#ffffe0', '#ffe4e1'];
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('audio-control');
-    
-    function playAudio() {
-      audio.volume = 0.8;
-      audio.play().catch(error => {
-        console.log('Error al reproducir audio:', error);
-      });
-    }
-    
-    document.body.addEventListener(isTouchDevice ? 'touchstart' : 'click', function() {
-      playAudio();
-    });
+  const audio = document.getElementById('miAudio');
+  audio.play().catch(() => {
+    // Si el autoplay es bloqueado, espera un clic del usuario
+    document.body.addEventListener('click', () => {
+      audio.play();
+    }, { once: true });
   });
-  
-<script>
+</script>
     </div>
 
     <div class="signature">Con cariño, Yeremi.</div>
