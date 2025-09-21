@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flores Amarillas 🌻</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', cursive;
+      background: linear-gradient(to bottom, #f9e79f, #f7dc6f, #f4d03f);
+      overflow: hidden;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.85);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 40px;
+      color: #b03a2e;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 12px auto;
+      width: 86%;
+      max-width: 680px;
+      line-height: 1.5;
+    }
+
+    .signature {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+
+    /* Animación de flores */
+    .flower {
+      position: absolute;
+      top: -120px;
+      pointer-events: none;
+      animation: caer linear infinite;
+      transform-origin: center;
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    iframe {
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.12);
+    }
+
+    /* Fondo suave con brillo */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 10%),
+                  radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06), transparent 8%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      p { font-size: 16px; width: 92%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="card">
+    <h1>🌻 Feliz Día de las Flores Amarillas 🌻</h1>
+    <p>
+      Dicen que regalar flores amarillas es desear un futuro lleno de amor, 
+      de sueños cumplidos y momentos felices.<br><br>
+      Hoy no te entrego un ramo en las manos, pero sí este detalle hecho con el corazón. 💛<br><br>
+      Ojalá que cada flor que caiga aquí te recuerde cuánto brillo traes a mi vida. ✨
+    </p>
+
+    <div style="text-align:center;">
+      <iframe width="100%" height="166" scrolling="no" frameborder="no"
+        src="https://w.soundcloud.com/player/?url=https://soundcloud.com/kurniawan-ardi-kusuma-effendy/128a?in=lahiru-dil/sets/copy-of-see-you-again&si=b1f17c8cd6d8441dadc3dacd058a5439&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+        allow="autoplay">
+      </iframe>
+    </div>
+
+    <div class="signature">Con cariño, Yeremi.</div>
+  </div>
+
+  <script>
+    // Generar flores amarillas cayendo
+    const flowers = ["🌻", "💛", "🌼"];
+    const total = 28;
+    for (let i = 0; i < total; i++) {
+      const el = document.createElement('div');
+      el.className = 'flower';
+      el.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (Math.random() * 28 + 18) + 'px';
+      el.style.animationDuration = (Math.random() * 7 + 6) + 's';
+      el.style.animationDelay = (Math.random() * 5) + 's';
+      el.style.opacity = Math.random() * 0.6 + 0.4;
+      document.body.appendChild(el);
+    }
+  </script>
+</body>
+</html>
